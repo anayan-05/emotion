@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Emotion-Informed Recommender</title>
+</head>
+<body>
+    <h2>Emotion-Informed Text Recommender</h2>
+    <form method="POST">
+        <label for="user_input">Enter your text:</label><br>
+        <textarea name="user_input" rows="4" cols="50">{{ user_input or '' }}</textarea><br>
+        <input type="submit" value="Analyze">
+    </form>
+
+    {% if emotion %}
+    <h3>Predicted Emotion: {{ emotion }}</h3>
+    <h4>Recommended Texts:</h4>
+    <ul>
+        {% for rec in recommendations %}
+            <li>{{ rec }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</body>
+</html>
